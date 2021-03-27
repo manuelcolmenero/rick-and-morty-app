@@ -45,6 +45,9 @@
 		FA351F89260FAE97006B6D09 /* CharacterLocationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F87260FAE97006B6D09 /* CharacterLocationViewCell.swift */; };
 		FA351F8A260FAE97006B6D09 /* CharacterLocationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA351F88260FAE97006B6D09 /* CharacterLocationViewCell.xib */; };
 		FA351F92260FB23D006B6D09 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F91260FB23D006B6D09 /* Typealias.swift */; };
+		FA351F9B260FC14D006B6D09 /* LocationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA351F9A260FC14D006B6D09 /* LocationDetail.storyboard */; };
+		FA351FA0260FC15C006B6D09 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F9F260FC15C006B6D09 /* LocationDetailViewController.swift */; };
+		FA351FA5260FC167006B6D09 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351FA4260FC167006B6D09 /* LocationDetailViewModel.swift */; };
 		FCD6D9FAA102452CFC5C071C /* Pods_rickandmortyappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75AC19D59504A0B01524CA9 /* Pods_rickandmortyappTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +120,9 @@
 		FA351F87260FAE97006B6D09 /* CharacterLocationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLocationViewCell.swift; sourceTree = "<group>"; };
 		FA351F88260FAE97006B6D09 /* CharacterLocationViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterLocationViewCell.xib; sourceTree = "<group>"; };
 		FA351F91260FB23D006B6D09 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		FA351F9A260FC14D006B6D09 /* LocationDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationDetail.storyboard; sourceTree = "<group>"; };
+		FA351F9F260FC15C006B6D09 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
+		FA351FA4260FC167006B6D09 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +238,7 @@
 		FA351EC8260F8458006B6D09 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				FA351F99260FC130006B6D09 /* LocationDetail */,
 				FA351F5D260FA549006B6D09 /* CharacterDetail */,
 				FA351ED5260F85C8006B6D09 /* Home */,
 				FA351ECF260F850A006B6D09 /* Launch */,
@@ -380,6 +387,16 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		FA351F99260FC130006B6D09 /* LocationDetail */ = {
+			isa = PBXGroup;
+			children = (
+				FA351F9A260FC14D006B6D09 /* LocationDetail.storyboard */,
+				FA351F9F260FC15C006B6D09 /* LocationDetailViewController.swift */,
+				FA351FA4260FC167006B6D09 /* LocationDetailViewModel.swift */,
+			);
+			path = LocationDetail;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -493,6 +510,7 @@
 				FA351EF6260F8B64006B6D09 /* CharacterViewCell.xib in Resources */,
 				FA351F83260FAE80006B6D09 /* CharacterOriginViewCell.xib in Resources */,
 				FA351F5F260FA55F006B6D09 /* CharacterDetail.storyboard in Resources */,
+				FA351F9B260FC14D006B6D09 /* LocationDetail.storyboard in Resources */,
 				FA351E8F260F39C3006B6D09 /* LaunchScreen.storyboard in Resources */,
 				FA351F8A260FAE97006B6D09 /* CharacterLocationViewCell.xib in Resources */,
 				FA351E8C260F39C3006B6D09 /* Assets.xcassets in Resources */,
@@ -607,11 +625,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA351F35260F91E1006B6D09 /* CharacterDTO.swift in Sources */,
+				FA351FA5260FC167006B6D09 /* LocationDetailViewModel.swift in Sources */,
 				FA351F07260F8F32006B6D09 /* InfoDAO.swift in Sources */,
 				FA351F64260FA56C006B6D09 /* CharacterDetailViewController.swift in Sources */,
 				FA351F2B260F91B1006B6D09 /* CharacterListDTO.swift in Sources */,
 				FA351F19260F90A6006B6D09 /* ServiceResult.swift in Sources */,
 				FA351F14260F8FF9006B6D09 /* DataManager.swift in Sources */,
+				FA351FA0260FC15C006B6D09 /* LocationDetailViewController.swift in Sources */,
 				FA351EF5260F8B64006B6D09 /* CharacterViewCell.swift in Sources */,
 				FA351F4B260F96C4006B6D09 /* CharacterDTOToDAOMapper.swift in Sources */,
 				FA351F30260F91C2006B6D09 /* InfoDTO.swift in Sources */,
