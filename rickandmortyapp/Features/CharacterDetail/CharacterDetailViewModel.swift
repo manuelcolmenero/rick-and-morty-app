@@ -11,6 +11,7 @@ import RxSwift
 class CharacterDetailViewModel {
     // MARK: - Observables
     let needReloadData : PublishSubject<Bool> = PublishSubject()
+    let needNavigateTo : PublishSubject<Scene> = PublishSubject()
     
     // MARK: - Properties
     
@@ -24,6 +25,6 @@ class CharacterDetailViewModel {
     }
     
     func sendButtonAction() {
-        
+        needNavigateTo.onNext(.locationDetail)
     }
 }

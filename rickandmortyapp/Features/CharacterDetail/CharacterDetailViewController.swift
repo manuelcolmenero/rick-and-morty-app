@@ -50,11 +50,41 @@ class CharacterDetailViewController: UIViewController {
                 self?.reloadData()
             })
             .disposed(by: disposeBag)
+        
+        viewModel.needNavigateTo
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (scene) in
+                self?.navigateTo(scene)
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Reaload Data
     private func reloadData() {
         tableView.reloadData()
+    }
+    
+    // MARK: - Navigate functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case Segue.characterDetailToLocationDetail.rawValue:
+            guard let destination = segue.destination as? LocationDetailViewController else { return }
+            destination.location = character?.location
+            
+        default:
+            return
+        }
+    }
+    
+    private func navigateTo(_ scene: Scene) {
+        switch scene {
+        case .locationDetail:
+            navigateTo(.characterDetailToLocationDetail)
+            
+        default:
+            // TODO:
+            break
+        }
     }
 }
 

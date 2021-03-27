@@ -34,6 +34,9 @@
                             <constraint firstAttribute="height" constant="46" id="grl-ua-LLd"/>
                         </constraints>
                         <state key="normal" title="Button"/>
+                        <connections>
+                            <action selector="mBookDetailAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="KCS-iM-biB"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

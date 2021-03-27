@@ -9,10 +9,12 @@ import UIKit
 
 enum Scene {
     case characterDetail
+    case locationDetail
 }
 
 enum Segue: String {
     case homeToCharacterDetail = "segueHomeToCharacterDetail"
+    case characterDetailToLocationDetail = "segueCharacterDetailToLocationDetail"
 }
 
 extension UIViewController {
