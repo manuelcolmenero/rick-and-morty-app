@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+struct CharacterListDAO: Codable {
+    var info: InfoDAO
+    var characters: [CharacterDAO]
+
+    enum CodingKeys: String, CodingKey {
+        case info
+        case characters = "results"
+    }
+}
