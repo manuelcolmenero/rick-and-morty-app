@@ -14,7 +14,7 @@ class CharacterDetailViewController: UIViewController {
     var character: CharacterDAO?
     
     // MARK: - Properties
-    private let viewModel = HomeViewModel()
+    private let viewModel = CharacterDetailViewModel()
     private let disposeBag = DisposeBag()
     
     // MARK: - IBOutlet
@@ -64,7 +64,7 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
     // MARK: Configure
     func configureTableView() {
         tableView.register(UINib(nibName: CharacterInfoViewCell.cellIdentifier,
-                                      bundle: nil),
+                                 bundle: nil),
                            forCellReuseIdentifier: CharacterInfoViewCell.cellIdentifier)
         
         tableView.register(UINib(nibName: CharacterOriginViewCell.cellIdentifier,
@@ -72,8 +72,10 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
                            forCellReuseIdentifier: CharacterOriginViewCell.cellIdentifier)
         
         tableView.register(UINib(nibName: CharacterLocationViewCell.cellIdentifier,
-                                      bundle: nil),
+                                 bundle: nil),
                            forCellReuseIdentifier: CharacterLocationViewCell.cellIdentifier)
+        
+        tableView.separatorStyle = .none
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -84,26 +86,31 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
         return 3
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell: UITableViewCell?
-        
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.row {
         case 0:
-            cell = cellInfo(tableView, cellForItemAt: indexPath)
+            return CharacterInfoViewCell.estimatedHeight
         case 1:
-            cell = cellOrigin(tableView, cellForItemAt: indexPath)
-        case 2:
-            cell = cellLocation(tableView, cellForItemAt: indexPath)
+            return CharacterOriginViewCell.estimatedHeight
         default:
-            cell = UITableViewCell()
+            return CharacterLocationViewCell.estimatedHeight
         }
-        
-        return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch indexPath.row {
+        case 0:
+            return cellInfo(for: indexPath)
+        case 1:
+            return cellOrigin(for: indexPath)
+        default:
+            return cellLocation(for: indexPath)
+        }
     }
     
     // MARK: Private
     // MARK: Configure cells
-    private func cellInfo(_ tableView: UITableView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
+    private func cellInfo(for indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterInfoViewCell.cellIdentifier,
                                                  for: indexPath) as? CharacterInfoViewCell
         
@@ -114,23 +121,26 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
         return cell ?? UITableViewCell()
     }
     
-    private func cellOrigin(_ tableView: UITableView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
+    private func cellOrigin(for indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterOriginViewCell.cellIdentifier,
                                                  for: indexPath) as? CharacterOriginViewCell
         
         if let char = character {
-            cell?.configure(character: char)
+            cell?.configure(origin: char.origin)
         }
         
         return cell ?? UITableViewCell()
     }
     
-    private func cellLocation(_ tableView: UITableView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
+    private func cellLocation(for indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterLocationViewCell.cellIdentifier,
                                                  for: indexPath) as? CharacterLocationViewCell
         
         if let char = character {
-            cell?.configure(character: char)
+            cell?.configure(location: char.location, action: {
+                // Notify ViewModel and make action
+                self.viewModel.sendButtonAction()
+            })
         }
         
         return cell ?? UITableViewCell()

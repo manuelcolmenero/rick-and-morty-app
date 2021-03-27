@@ -22,4 +22,8 @@ class CharacterDetailViewModel {
     func loadData() {
         self.needReloadData.onNext(true)
     }
+    
+    func sendButtonAction() {
+        
+    }
 }

@@ -12,6 +12,3 @@ enum ServiceResult {
     case success(data: Any?)
     case failure(error: String?)
 }
-
-// Define new type closure for return data
-typealias ServiceCompletion = (_ result: ServiceResult) -> ()

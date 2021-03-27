@@ -11,10 +11,12 @@ class CharacterInfoViewCell: UITableViewCell {
     
     // MARK: - Class
     static let cellIdentifier = String(describing: CharacterInfoViewCell.self)
-    static let estimatedHeight: CGFloat = 100.0
+    static let estimatedHeight: CGFloat = 150.0
     
     // MARK: - IBOutlet
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var mName: UILabel!
+    @IBOutlet weak var mStatus: UILabel!
+    @IBOutlet weak var mSpecies: UILabel!
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
@@ -23,7 +25,9 @@ class CharacterInfoViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        name.text = nil
+        mName.text = nil
+        mStatus.text = nil
+        mSpecies.text = nil
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,10 +39,20 @@ class CharacterInfoViewCell: UITableViewCell {
     // MARK: - Configure methods
     func configure(character: CharacterDAO) {
         update(name: character.name)
+        update(status: character.status)
+        update(species: character.species, gender: character.gender)
     }
     
     // MARK: - Private methods
     private func update(name: String) {
-        self.name.text = name
+        mName.text = name
+    }
+    
+    private func update(status: String) {
+        mStatus.text = "status: \(status)"
+    }
+    
+    private func update(species: String, gender: String) {
+        mSpecies.text = "\(species) - \(gender)"
     }
 }

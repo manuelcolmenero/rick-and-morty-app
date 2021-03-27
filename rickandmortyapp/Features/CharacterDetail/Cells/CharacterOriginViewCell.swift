@@ -8,13 +8,14 @@
 import UIKit
 
 class CharacterOriginViewCell: UITableViewCell {
-
+    
     // MARK: - Class
     static let cellIdentifier = String(describing: CharacterOriginViewCell.self)
     static let estimatedHeight: CGFloat = 100.0
     
     // MARK: - IBOutlet
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var mTitle: UILabel!
+    @IBOutlet weak var mName: UILabel!
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
@@ -23,23 +24,27 @@ class CharacterOriginViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        name.text = nil
+        mTitle.text = nil
+        mName.text = nil
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
     // MARK: - Configure methods
-    func configure(character: CharacterDAO) {
-        update(name: character.origin.name)
+    func configure(origin: CharacterOriginDAO) {
+        
+        update(name: origin.name)
     }
     
     // MARK: - Private methods
     private func update(name: String) {
-        self.name.text = name
+        mTitle.text = "Last known location:" // TODO: Change hardcode
+        
+        mName.text = name
     }
     
 }
