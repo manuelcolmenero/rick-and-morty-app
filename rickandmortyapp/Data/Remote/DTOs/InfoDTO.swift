@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+struct InfoDTO: Codable {
+    var totalCharacters: Int
+    var totalPages: Int
+    var nextUrl: String?
+    var prevUrl: String?
+
+    enum CodingKeys: String, CodingKey {
+        case totalCharacters = "count"
+        case totalPages = "pages"
+        case nextUrl = "next"
+        case prevUrl = "prev"
+    }
+}
