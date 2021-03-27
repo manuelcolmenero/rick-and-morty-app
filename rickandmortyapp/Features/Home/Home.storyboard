@@ -33,11 +33,22 @@
                     <navigationItem key="navigationItem" id="QKD-xK-QDf"/>
                     <connections>
                         <outlet property="tableView" destination="4rJ-K7-gQu" id="Pdt-vx-owq"/>
+                        <segue destination="iLu-bV-SRa" kind="show" identifier="segueHomeToCharacterDetail" id="X2D-j0-DCn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYi-Y1-tph" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="357" y="151"/>
+        </scene>
+        <!--CharacterDetail-->
+        <scene sceneID="TlX-6D-s7L">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CharacterDetail" id="iLu-bV-SRa" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bwC-Pl-JsS"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="huN-qm-AnQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1019" y="151"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q77-tA-2uq">

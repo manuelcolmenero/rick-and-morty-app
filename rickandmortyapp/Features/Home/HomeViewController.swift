@@ -48,12 +48,42 @@ class HomeViewController: UIViewController {
                 self?.reloadData()
             })
             .disposed(by: disposeBag)
+        
+        viewModel.needNavigateTo
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (scene, data) in
+                self?.navigateTo(scene, sender: data)
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Reaload Data
     private func reloadData() {
         isLoadingCharacters = false
         tableView.reloadData()
+    }
+    
+    // MARK: - Navigate functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+            case Segue.homeToCharacterDetail.rawValue:
+                guard let destination = segue.destination as? CharacterDetailViewController, let character = sender as? CharacterDAO else { return }
+                destination.character = character
+                
+            default:
+                return
+        }
+    }
+    
+    private func navigateTo(_ scene: Scene, sender: Any? = nil) {
+        switch scene {
+            case .characterDetail:
+                navigateTo(.homeToCharacterDetail, sender: sender)
+                
+            default:
+                // TODO:
+                break
+        }
     }
 }
 
@@ -90,6 +120,12 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
         
         loadMoreData(for: indexPath)
         return cell ?? UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if(!(viewModel.areMoreCharacters && indexPath.row == viewModel.characters.count)) {
+            viewModel.onCharacterPressed(indexPath.row)
+        }
     }
     
     // MARK: Private

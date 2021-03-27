@@ -37,6 +37,7 @@
 		FA351F5F260FA55F006B6D09 /* CharacterDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA351F5E260FA55F006B6D09 /* CharacterDetail.storyboard */; };
 		FA351F64260FA56C006B6D09 /* CharacterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F63260FA56C006B6D09 /* CharacterDetailViewController.swift */; };
 		FA351F69260FA57A006B6D09 /* CharacterDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F68260FA57A006B6D09 /* CharacterDetailViewModel.swift */; };
+		FA351F6E260FA69E006B6D09 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F6D260FA69E006B6D09 /* Navigation.swift */; };
 		FCD6D9FAA102452CFC5C071C /* Pods_rickandmortyappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75AC19D59504A0B01524CA9 /* Pods_rickandmortyappTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +102,7 @@
 		FA351F5E260FA55F006B6D09 /* CharacterDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CharacterDetail.storyboard; sourceTree = "<group>"; };
 		FA351F63260FA56C006B6D09 /* CharacterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewController.swift; sourceTree = "<group>"; };
 		FA351F68260FA57A006B6D09 /* CharacterDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailViewModel.swift; sourceTree = "<group>"; };
+		FA351F6D260FA69E006B6D09 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +243,7 @@
 			children = (
 				FA351E82260F39C2006B6D09 /* AppDelegate.swift */,
 				FA351E84260F39C2006B6D09 /* SceneDelegate.swift */,
+				FA351F6D260FA69E006B6D09 /* Navigation.swift */,
 				FA351ECB260F8494006B6D09 /* Resources */,
 			);
 			path = App;
@@ -580,6 +583,7 @@
 				FA351EF5260F8B64006B6D09 /* CharacterViewCell.swift in Sources */,
 				FA351F4B260F96C4006B6D09 /* CharacterDTOToDAOMapper.swift in Sources */,
 				FA351F30260F91C2006B6D09 /* InfoDTO.swift in Sources */,
+				FA351F6E260FA69E006B6D09 /* Navigation.swift in Sources */,
 				FA351F23260F916D006B6D09 /* ApiManager.swift in Sources */,
 				FA351F46260F9371006B6D09 /* CharacterListDTOToDAOMapper.swift in Sources */,
 				FA351E83260F39C2006B6D09 /* AppDelegate.swift in Sources */,

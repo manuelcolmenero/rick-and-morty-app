@@ -11,6 +11,7 @@ import RxSwift
 class HomeViewModel {
     // MARK: - Observables
     let needReloadData : PublishSubject<Bool> = PublishSubject()
+    let needNavigateTo : PublishSubject<(Scene, Any?)> = PublishSubject()
     
     // MARK: - Properties
     var infoList: InfoDAO?
@@ -42,6 +43,10 @@ class HomeViewModel {
         fetchCharacterList()
     }
     
+    func onCharacterPressed(_ index: Int) {
+        showLocationDetail(for: index)
+    }
+    
     // MARK: - Data functions
     /// Get all layouts for home
     fileprivate func fetchCharacterList() {
@@ -64,5 +69,11 @@ class HomeViewModel {
         
         self.infoList = charlist.info
         self.characters.append(contentsOf: charlist.characters)
+    }
+    
+    private func showLocationDetail(for index: Int) {
+        guard let character = character(by: index) else { return }
+        
+        needNavigateTo.onNext((.characterDetail, character))
     }
 }
