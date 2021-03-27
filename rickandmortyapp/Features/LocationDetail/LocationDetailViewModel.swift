@@ -17,6 +17,11 @@ class LocationDetailViewModel {
     var locationData: LocationDAO?
     
     // MARK: - Computed properties
+    var numberOfRows: Int {
+        guard locationData != nil else { return 0 }
+        
+        return 1
+    }
     
     // MARK: - Private Properties
     
