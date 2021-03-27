@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -111,7 +111,6 @@
 				6B1233BFBE7ECA185741F853 /* Pods-rickandmortyappUITests.debug.xcconfig */,
 				D07EBF1B125B68F56B72C6E4 /* Pods-rickandmortyappUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -140,13 +139,10 @@
 		FA351E81260F39C2006B6D09 /* rickandmortyapp */ = {
 			isa = PBXGroup;
 			children = (
-				FA351E82260F39C2006B6D09 /* AppDelegate.swift */,
-				FA351E84260F39C2006B6D09 /* SceneDelegate.swift */,
-				FA351E86260F39C2006B6D09 /* ViewController.swift */,
-				FA351E88260F39C2006B6D09 /* Main.storyboard */,
-				FA351E8B260F39C3006B6D09 /* Assets.xcassets */,
-				FA351E8D260F39C3006B6D09 /* LaunchScreen.storyboard */,
-				FA351E90260F39C3006B6D09 /* Info.plist */,
+				FA351ECA260F846B006B6D09 /* App */,
+				FA351EC9260F8464006B6D09 /* Data */,
+				FA351EC8260F8458006B6D09 /* Features */,
+				FA351EC7260F8449006B6D09 /* SupportingFiles */,
 			);
 			path = rickandmortyapp;
 			sourceTree = "<group>";
@@ -167,6 +163,73 @@
 				FA351EA6260F39C3006B6D09 /* Info.plist */,
 			);
 			path = rickandmortyappUITests;
+			sourceTree = "<group>";
+		};
+		FA351EC7260F8449006B6D09 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				FA351E90260F39C3006B6D09 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		FA351EC8260F8458006B6D09 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				FA351E86260F39C2006B6D09 /* ViewController.swift */,
+				FA351E88260F39C2006B6D09 /* Main.storyboard */,
+				FA351ECF260F850A006B6D09 /* Launch */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		FA351EC9260F8464006B6D09 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FA351ED0260F852A006B6D09 /* Local */,
+				FA351ED1260F8530006B6D09 /* Remote */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FA351ECA260F846B006B6D09 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FA351E82260F39C2006B6D09 /* AppDelegate.swift */,
+				FA351E84260F39C2006B6D09 /* SceneDelegate.swift */,
+				FA351ECB260F8494006B6D09 /* Resources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FA351ECB260F8494006B6D09 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA351E8B260F39C3006B6D09 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA351ECF260F850A006B6D09 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				FA351E8D260F39C3006B6D09 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		FA351ED0260F852A006B6D09 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		FA351ED1260F8530006B6D09 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -570,7 +633,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FNC56RY6LN;
-				INFOPLIST_FILE = rickandmortyapp/Info.plist;
+				INFOPLIST_FILE = rickandmortyapp/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -590,7 +653,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FNC56RY6LN;
-				INFOPLIST_FILE = rickandmortyapp/Info.plist;
+				INFOPLIST_FILE = rickandmortyapp/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
