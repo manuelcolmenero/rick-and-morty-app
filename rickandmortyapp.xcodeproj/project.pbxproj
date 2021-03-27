@@ -48,6 +48,9 @@
 		FA351F9B260FC14D006B6D09 /* LocationDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA351F9A260FC14D006B6D09 /* LocationDetail.storyboard */; };
 		FA351FA0260FC15C006B6D09 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F9F260FC15C006B6D09 /* LocationDetailViewController.swift */; };
 		FA351FA5260FC167006B6D09 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351FA4260FC167006B6D09 /* LocationDetailViewModel.swift */; };
+		FA351FAA260FC4EA006B6D09 /* LocationDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351FA9260FC4EA006B6D09 /* LocationDTO.swift */; };
+		FA351FAF260FC50D006B6D09 /* LocationDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351FAE260FC50D006B6D09 /* LocationDAO.swift */; };
+		FA351FB4260FC593006B6D09 /* LocationDTOToDAOMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351FB3260FC593006B6D09 /* LocationDTOToDAOMapper.swift */; };
 		FCD6D9FAA102452CFC5C071C /* Pods_rickandmortyappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75AC19D59504A0B01524CA9 /* Pods_rickandmortyappTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,6 +126,9 @@
 		FA351F9A260FC14D006B6D09 /* LocationDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationDetail.storyboard; sourceTree = "<group>"; };
 		FA351F9F260FC15C006B6D09 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		FA351FA4260FC167006B6D09 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
+		FA351FA9260FC4EA006B6D09 /* LocationDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDTO.swift; sourceTree = "<group>"; };
+		FA351FAE260FC50D006B6D09 /* LocationDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDAO.swift; sourceTree = "<group>"; };
+		FA351FB3260FC593006B6D09 /* LocationDTOToDAOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDTOToDAOMapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -331,6 +337,7 @@
 				FA351F0B260F8F5B006B6D09 /* CharacterDAO.swift */,
 				FA351EFE260F8EA2006B6D09 /* CharacterListDAO.swift */,
 				FA351F06260F8F32006B6D09 /* InfoDAO.swift */,
+				FA351FAE260FC50D006B6D09 /* LocationDAO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -349,6 +356,7 @@
 				FA351F34260F91E1006B6D09 /* CharacterDTO.swift */,
 				FA351F2A260F91B1006B6D09 /* CharacterListDTO.swift */,
 				FA351F2F260F91C2006B6D09 /* InfoDTO.swift */,
+				FA351FA9260FC4EA006B6D09 /* LocationDTO.swift */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -359,6 +367,7 @@
 				FA351F4A260F96C4006B6D09 /* CharacterDTOToDAOMapper.swift */,
 				FA351F45260F9371006B6D09 /* CharacterListDTOToDAOMapper.swift */,
 				FA351F4F260F9837006B6D09 /* InfoDTOToDAOMapper.swift */,
+				FA351FB3260FC593006B6D09 /* LocationDTOToDAOMapper.swift */,
 			);
 			path = Mappers;
 			sourceTree = "<group>";
@@ -633,6 +642,7 @@
 				FA351F14260F8FF9006B6D09 /* DataManager.swift in Sources */,
 				FA351FA0260FC15C006B6D09 /* LocationDetailViewController.swift in Sources */,
 				FA351EF5260F8B64006B6D09 /* CharacterViewCell.swift in Sources */,
+				FA351FB4260FC593006B6D09 /* LocationDTOToDAOMapper.swift in Sources */,
 				FA351F4B260F96C4006B6D09 /* CharacterDTOToDAOMapper.swift in Sources */,
 				FA351F30260F91C2006B6D09 /* InfoDTO.swift in Sources */,
 				FA351F82260FAE80006B6D09 /* CharacterOriginViewCell.swift in Sources */,
@@ -648,8 +658,10 @@
 				FA351EEE260F8B50006B6D09 /* LoadingViewCell.swift in Sources */,
 				FA351F0C260F8F5B006B6D09 /* CharacterDAO.swift in Sources */,
 				FA351EE0260F85F3006B6D09 /* HomeViewController.swift in Sources */,
+				FA351FAA260FC4EA006B6D09 /* LocationDTO.swift in Sources */,
 				FA351F69260FA57A006B6D09 /* CharacterDetailViewModel.swift in Sources */,
 				FA351F50260F9837006B6D09 /* InfoDTOToDAOMapper.swift in Sources */,
+				FA351FAF260FC50D006B6D09 /* LocationDAO.swift in Sources */,
 				FA351EE5260F8600006B6D09 /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

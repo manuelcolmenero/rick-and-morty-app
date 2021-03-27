@@ -14,6 +14,8 @@ class LocationDetailViewController: UIViewController {
     var location: CharacterLocationDAO?
     
     // MARK: - Properties
+    private let viewModel = LocationDetailViewModel()
+    private let disposeBag = DisposeBag()
     
     // MARK: - IBOutlet
     
@@ -21,6 +23,8 @@ class LocationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.lastLocation = location
+        viewModel.loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +40,16 @@ class LocationDetailViewController: UIViewController {
     
     // MARK: - Observers functions
     private func configureObservers() {
+        viewModel.needReloadData
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] result in
+                self?.reloadData()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    // MARK: - Reaload Data
+    private func reloadData() {
         
     }
 }

@@ -48,4 +48,31 @@ class DataManager {
             }
         }
     }
+    
+    func fetchLocation(url urlLocation: String, callback: @escaping ServiceCompletion) {
+        
+        let apiManager = ApiManager.shared
+        apiManager.fetchLocation(urlLocation) { (result) in
+        
+            switch result {
+            case .success(data: let location):
+                
+                // Data validation
+                guard let locationDTO = location as? LocationDTO else {
+                    callback(ServiceResult.failure(error: "Call without data. Contact us")) // TODO: Change harcode
+                    return
+                }
+                
+                // Mapper DTO to DAO
+                let locationDAO = LocationDTOToDAOMapper().map(locationDTO)
+                
+                // Return success result with characters
+                callback(ServiceResult.success(data: locationDAO))
+                
+            case .failure(error: let error):
+                // return failure string
+                callback(ServiceResult.failure(error: error))
+            }
+        }
+    }
 }

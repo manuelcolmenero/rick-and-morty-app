@@ -52,5 +52,24 @@ class ApiManager {
     
     /// GET https://rickandmortyapi.com/api/location/{location_id}
     /// Endpoint to fetch the details of a location.
-    
+    func fetchLocation(_ urlPath: String, callback: @escaping ServiceCompletion) {
+        
+        let params: [String: Any] = [:]
+        
+        let request = AF.request(urlPath, method: .get, parameters: params)
+        request.responseDecodable { (response: AFDataResponse<LocationDTO>) in
+            
+            // Response data decoded
+            // response.value is a type of LocationDTO
+            if let location = response.value {
+                // Notify to callback data success result
+                // and send parsed data
+                callback(ServiceResult.success(data: location))
+            } else {
+                // Notify to callback data error message
+                // and send custom text
+                callback(ServiceResult.failure(error: "Service error parse response data"))
+            }
+        }
+    }
 }
