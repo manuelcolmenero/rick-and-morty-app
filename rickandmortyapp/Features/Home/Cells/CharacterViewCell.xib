@@ -51,7 +51,6 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="BvG-oc-3Gk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="kWd-uI-p1Q"/>
                 <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="3rS-65-WDB" secondAttribute="trailing" constant="10" id="q2H-Yp-LVa"/>
