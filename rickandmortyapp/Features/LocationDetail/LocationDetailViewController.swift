@@ -50,6 +50,13 @@ class LocationDetailViewController: UIViewController {
                 self?.reloadData()
             })
             .disposed(by: disposeBag)
+        
+        viewModel.needShowAlert
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] text in
+                self?.showAlert(with: text)
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Reaload Data

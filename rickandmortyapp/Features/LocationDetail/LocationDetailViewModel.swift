@@ -11,6 +11,7 @@ import RxSwift
 class LocationDetailViewModel {
     // MARK: - Observables
     let needReloadData : PublishSubject<Bool> = PublishSubject()
+    let needShowAlert : PublishSubject<String> = PublishSubject()
     
     // MARK: - Properties
     var lastLocation: CharacterLocationDAO?
@@ -43,7 +44,7 @@ class LocationDetailViewModel {
                 self.needReloadData.onNext(true)
                 
             case .failure(error: let error):
-                print(error)
+                self.needShowAlert.onNext(error ?? NSLocalizedString("error_standar", comment: ""))
             }
         }
     }

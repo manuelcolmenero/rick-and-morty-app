@@ -7,6 +7,8 @@
 */
 
 // Core
+"accept" = "Accept";
+
 // Home
 "home_title_screen" = "Characters";
 
@@ -23,5 +25,8 @@
 "location_title_dimension" = "Dimension:";
 
 // Errors
+"alert_title" = "Warning";
+
+"error_standar" = "An error has occurred. Contact us";
 "error_call_data" = "Call without data. Contact us";
 "error_service" = "Service error. Contact us";

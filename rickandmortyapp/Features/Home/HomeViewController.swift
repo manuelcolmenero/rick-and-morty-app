@@ -57,14 +57,22 @@ class HomeViewController: UIViewController, CharacterDetailViewDelegate {
             })
             .disposed(by: disposeBag)
         
+        viewModel.needReloadCell
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] index in
+                self?.reloadCell(index)
+            })
+            .disposed(by: disposeBag)
         
-            viewModel.needReloadCell
-                .observe(on: MainScheduler.instance)
-                .subscribe(onNext: { [weak self] index in
-                    self?.reloadCell(index)
-                })
-                .disposed(by: disposeBag)
+        
+        viewModel.needShowAlert
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] text in
+                self?.showAlert(with: text)
+            })
+            .disposed(by: disposeBag)
     }
+    
     
     // MARK: - Reaload Data
     private func reloadData() {
@@ -80,24 +88,24 @@ class HomeViewController: UIViewController, CharacterDetailViewDelegate {
     // MARK: - Navigate functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-            case Segue.homeToCharacterDetail.rawValue:
-                guard let destination = segue.destination as? CharacterDetailViewController, let character = sender as? CharacterDAO else { return }
-                destination.character = character
-                destination.delegate = self
-                
-            default:
-                return
+        case Segue.homeToCharacterDetail.rawValue:
+            guard let destination = segue.destination as? CharacterDetailViewController, let character = sender as? CharacterDAO else { return }
+            destination.character = character
+            destination.delegate = self
+            
+        default:
+            return
         }
     }
     
     private func navigateTo(_ scene: Scene, sender: Any? = nil) {
         switch scene {
-            case .characterDetail:
-                navigateTo(.homeToCharacterDetail, sender: sender)
-                
-            default:
-                // TODO:
-                break
+        case .characterDetail:
+            navigateTo(.homeToCharacterDetail, sender: sender)
+            
+        default:
+            // TODO:
+            break
         }
     }
     
@@ -118,7 +126,7 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     // MARK: Configure
     func configureTableView() {
         tableView.register(UINib(nibName: CharacterViewCell.cellIdentifier,
-                                      bundle: nil),
+                                 bundle: nil),
                            forCellReuseIdentifier: CharacterViewCell.cellIdentifier)
         
         tableView.register(UINib(nibName: LoadingViewCell.cellIdentifier,

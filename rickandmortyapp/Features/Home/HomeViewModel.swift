@@ -12,7 +12,8 @@ class HomeViewModel {
     // MARK: - Observables
     let needReloadData : PublishSubject<Bool> = PublishSubject()
     let needNavigateTo : PublishSubject<(Scene, Any?)> = PublishSubject()
-    let needReloadCell : PublishSubject<Int> = PublishSubject()
+    let needReloadCell : PublishSubject<Int> = PublishSubject()    
+    let needShowAlert : PublishSubject<String> = PublishSubject()
     
     // MARK: - Properties
     var infoList: InfoDAO?
@@ -58,7 +59,7 @@ class HomeViewModel {
     func favoriteAction(for id: Int, and index: Int) {
         let dataManager = DataManager.shared
         let character = characters[index]
-            
+        
         if character.favorite {
             dataManager.removeFavorite(character.id)
         } else {
@@ -66,7 +67,7 @@ class HomeViewModel {
         }
         
         characters[index].favorite = !(character.favorite)
-            
+        
         self.needReloadCell.onNext(index)
     }
     
@@ -82,7 +83,7 @@ class HomeViewModel {
                 self.needReloadData.onNext(true)
                 
             case .failure(error: let error):
-                print(error)
+                self.needShowAlert.onNext(error ?? NSLocalizedString("error_standar", comment: ""))
             }
         }
     }
