@@ -39,8 +39,6 @@
 		FA351F6E260FA69E006B6D09 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F6D260FA69E006B6D09 /* Navigation.swift */; };
 		FA351F7B260FAE69006B6D09 /* CharacterInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F79260FAE69006B6D09 /* CharacterInfoViewCell.swift */; };
 		FA351F7C260FAE69006B6D09 /* CharacterInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA351F7A260FAE69006B6D09 /* CharacterInfoViewCell.xib */; };
-		FA351F82260FAE80006B6D09 /* CharacterOriginViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F80260FAE80006B6D09 /* CharacterOriginViewCell.swift */; };
-		FA351F83260FAE80006B6D09 /* CharacterOriginViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA351F81260FAE80006B6D09 /* CharacterOriginViewCell.xib */; };
 		FA351F89260FAE97006B6D09 /* CharacterLocationViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F87260FAE97006B6D09 /* CharacterLocationViewCell.swift */; };
 		FA351F8A260FAE97006B6D09 /* CharacterLocationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA351F88260FAE97006B6D09 /* CharacterLocationViewCell.xib */; };
 		FA351F92260FB23D006B6D09 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351F91260FB23D006B6D09 /* Typealias.swift */; };
@@ -56,6 +54,9 @@
 		FA351FCE2610929E006B6D09 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351FCD2610929E006B6D09 /* UserDefaultsManager.swift */; };
 		FA351FFB2610AF33006B6D09 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA351FFA2610AF33006B6D09 /* Localizable.strings */; };
 		FA3520012610B44C006B6D09 /* ViewController+AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3520002610B44C006B6D09 /* ViewController+AlertController.swift */; };
+		FA98E8472610E156009FA10B /* LocationTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98E8462610E156009FA10B /* LocationTypes.swift */; };
+		FA98E8582610EB58009FA10B /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98E8572610EB58009FA10B /* StringExtensions.swift */; };
+		FA98E8682610EE2D009FA10B /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98E8672610EE2D009FA10B /* ApiRouter.swift */; };
 		FCD6D9FAA102452CFC5C071C /* Pods_rickandmortyappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75AC19D59504A0B01524CA9 /* Pods_rickandmortyappTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -123,8 +124,6 @@
 		FA351F6D260FA69E006B6D09 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		FA351F79260FAE69006B6D09 /* CharacterInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewCell.swift; sourceTree = "<group>"; };
 		FA351F7A260FAE69006B6D09 /* CharacterInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterInfoViewCell.xib; sourceTree = "<group>"; };
-		FA351F80260FAE80006B6D09 /* CharacterOriginViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterOriginViewCell.swift; sourceTree = "<group>"; };
-		FA351F81260FAE80006B6D09 /* CharacterOriginViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterOriginViewCell.xib; sourceTree = "<group>"; };
 		FA351F87260FAE97006B6D09 /* CharacterLocationViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLocationViewCell.swift; sourceTree = "<group>"; };
 		FA351F88260FAE97006B6D09 /* CharacterLocationViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterLocationViewCell.xib; sourceTree = "<group>"; };
 		FA351F91260FB23D006B6D09 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
@@ -139,6 +138,9 @@
 		FA351FCD2610929E006B6D09 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		FA351FFA2610AF33006B6D09 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		FA3520002610B44C006B6D09 /* ViewController+AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+AlertController.swift"; sourceTree = "<group>"; };
+		FA98E8462610E156009FA10B /* LocationTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTypes.swift; sourceTree = "<group>"; };
+		FA98E8572610EB58009FA10B /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		FA98E8672610EE2D009FA10B /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				FA351F13260F8FF9006B6D09 /* DataManager.swift */,
+				FA98E8462610E156009FA10B /* LocationTypes.swift */,
 				FA351F18260F90A6006B6D09 /* ServiceResult.swift */,
 				FA351F91260FB23D006B6D09 /* Typealias.swift */,
 				FA351ED0260F852A006B6D09 /* Local */,
@@ -359,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				FA351F22260F916D006B6D09 /* ApiManager.swift */,
+				FA98E8672610EE2D009FA10B /* ApiRouter.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -403,8 +407,6 @@
 				FA351F79260FAE69006B6D09 /* CharacterInfoViewCell.swift */,
 				FA351F88260FAE97006B6D09 /* CharacterLocationViewCell.xib */,
 				FA351F87260FAE97006B6D09 /* CharacterLocationViewCell.swift */,
-				FA351F81260FAE80006B6D09 /* CharacterOriginViewCell.xib */,
-				FA351F80260FAE80006B6D09 /* CharacterOriginViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -433,6 +435,7 @@
 			isa = PBXGroup;
 			children = (
 				FA3520002610B44C006B6D09 /* ViewController+AlertController.swift */,
+				FA98E8572610EB58009FA10B /* StringExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -550,7 +553,6 @@
 				FA351EDB260F85E4006B6D09 /* Home.storyboard in Resources */,
 				FA351EEF260F8B50006B6D09 /* LoadingViewCell.xib in Resources */,
 				FA351EF6260F8B64006B6D09 /* CharacterViewCell.xib in Resources */,
-				FA351F83260FAE80006B6D09 /* CharacterOriginViewCell.xib in Resources */,
 				FA351F5F260FA55F006B6D09 /* CharacterDetail.storyboard in Resources */,
 				FA351F9B260FC14D006B6D09 /* LocationDetail.storyboard in Resources */,
 				FA351FC6260FCA39006B6D09 /* LocationInfoViewCell.xib in Resources */,
@@ -680,10 +682,11 @@
 				FA351FB4260FC593006B6D09 /* LocationDTOToDAOMapper.swift in Sources */,
 				FA351F4B260F96C4006B6D09 /* CharacterDTOToDAOMapper.swift in Sources */,
 				FA351F30260F91C2006B6D09 /* InfoDTO.swift in Sources */,
-				FA351F82260FAE80006B6D09 /* CharacterOriginViewCell.swift in Sources */,
 				FA351F6E260FA69E006B6D09 /* Navigation.swift in Sources */,
 				FA351F89260FAE97006B6D09 /* CharacterLocationViewCell.swift in Sources */,
+				FA98E8582610EB58009FA10B /* StringExtensions.swift in Sources */,
 				FA351F23260F916D006B6D09 /* ApiManager.swift in Sources */,
+				FA98E8472610E156009FA10B /* LocationTypes.swift in Sources */,
 				FA351F46260F9371006B6D09 /* CharacterListDTOToDAOMapper.swift in Sources */,
 				FA351F92260FB23D006B6D09 /* Typealias.swift in Sources */,
 				FA351F7B260FAE69006B6D09 /* CharacterInfoViewCell.swift in Sources */,
@@ -692,6 +695,7 @@
 				FA351EFF260F8EA2006B6D09 /* CharacterListDAO.swift in Sources */,
 				FA351E85260F39C2006B6D09 /* SceneDelegate.swift in Sources */,
 				FA351EEE260F8B50006B6D09 /* LoadingViewCell.swift in Sources */,
+				FA98E8682610EE2D009FA10B /* ApiRouter.swift in Sources */,
 				FA351F0C260F8F5B006B6D09 /* CharacterDAO.swift in Sources */,
 				FA351EE0260F85F3006B6D09 /* HomeViewController.swift in Sources */,
 				FA351FAA260FC4EA006B6D09 /* LocationDTO.swift in Sources */,

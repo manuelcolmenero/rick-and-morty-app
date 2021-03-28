@@ -36,7 +36,7 @@ class DataManager {
                 }
                 
                 // Mapper DTO to DAO
-                var listDAO = CharacterListDTOToDAOMapper().map(listDTO)
+                let listDAO = CharacterListDTOToDAOMapper().map(listDTO)
                                 
                 // Return success result with characters
                 callback(ServiceResult.success(data: listDAO))
@@ -48,6 +48,11 @@ class DataManager {
         }
     }
     
+    
+    /// Call to get a single location 
+    /// - Parameters:
+    ///   - urlLocation: URL of the location to obtain
+    ///   - callback: closure for return data
     func fetchLocation(url urlLocation: String, callback: @escaping ServiceCompletion) {
         
         let apiManager = ApiManager.shared
@@ -76,6 +81,9 @@ class DataManager {
     }
     
     // MARK: - Local
+    /// Obtaining if a character has been marked as a favorite
+    /// - Parameter Character ID
+    /// - Returns:Boolean value indicating whether the item is favorite or not
     func getFavorite(_ id: Int) -> Bool {
         let userDefaults = UserDefaultsManager.shared
         let favorites = userDefaults.getFavoriteCharacters()
@@ -84,6 +92,8 @@ class DataManager {
     }
     
     
+    /// Marking a character as a favorite
+    /// - Parameter id: Character ID
     func addFavorite(_ id: Int) {
         let userDefaults = UserDefaultsManager.shared
         var favorites = userDefaults.getFavoriteCharacters()
@@ -93,6 +103,8 @@ class DataManager {
         userDefaults.saveFavoriteCharacters(favorites)
     }
     
+    /// Unmarked a character as favorite
+    /// - Parameter id: Character ID
     func removeFavorite(_ id: Int) {
         
         let userDefaults = UserDefaultsManager.shared

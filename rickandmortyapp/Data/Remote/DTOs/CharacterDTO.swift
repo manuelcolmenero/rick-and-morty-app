@@ -14,7 +14,7 @@ struct CharacterDTO: Codable {
     var species: String
     var type: String
     var gender: String
-    var origin: CharacterOriginDTO
+    var origin: CharacterLocationDTO
     var location: CharacterLocationDTO
     var image: String
     var episode: [String]
@@ -34,16 +34,6 @@ struct CharacterDTO: Codable {
         case episode
         case url
         case created
-    }
-}
-
-struct CharacterOriginDTO: Codable {
-    var name: String
-    var url: String
-
-    enum CodingKeys: String, CodingKey {
-        case name
-        case url
     }
 }
 

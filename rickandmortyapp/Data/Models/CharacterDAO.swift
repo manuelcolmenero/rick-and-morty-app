@@ -12,12 +12,10 @@ struct CharacterDAO: Codable {
     var name: String
     var status: String
     var species: String
-    var type: String
     var gender: String
-    var origin: CharacterOriginDAO
+    var origin: CharacterLocationDAO
     var location: CharacterLocationDAO
     var image: String
-    var url: String
     var favorite: Bool
 
     enum CodingKeys: String, CodingKey {
@@ -25,23 +23,11 @@ struct CharacterDAO: Codable {
         case name
         case status
         case species
-        case type
         case gender
         case origin
         case location
         case image
-        case url
         case favorite
-    }
-}
-
-struct CharacterOriginDAO: Codable {
-    var name: String
-    var url: String
-
-    enum CodingKeys: String, CodingKey {
-        case name
-        case url
     }
 }
 

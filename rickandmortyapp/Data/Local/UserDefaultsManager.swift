@@ -8,7 +8,7 @@
 import Foundation
 
 class UserDefaultsManager {
-    // MARK: - Global variables
+    // MARK: - Constants
     private static let FAVORITES =  "favorites"
     
     // MARK: - SINGLETON implementation

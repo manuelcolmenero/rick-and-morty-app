@@ -59,8 +59,8 @@ class CharacterDetailViewController: UIViewController {
         
         viewModel.needNavigateTo
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] (scene) in
-                self?.navigateTo(scene)
+            .subscribe(onNext: { [weak self] (scene, data) in
+                self?.navigateTo(scene, sender: data)
             })
             .disposed(by: disposeBag)
         
@@ -81,18 +81,23 @@ class CharacterDetailViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
         case Segue.characterDetailToLocationDetail.rawValue:
-            guard let destination = segue.destination as? LocationDetailViewController else { return }
-            destination.location = character?.location
+            guard let destination = segue.destination as? LocationDetailViewController, let locationType = sender as? LocationTypes else { return }
+            switch locationType {
+            case .origin:
+                destination.location = character?.origin
+            case .last:
+                destination.location = character?.location
+            }
             
         default:
             return
         }
     }
     
-    private func navigateTo(_ scene: Scene) {
+    private func navigateTo(_ scene: Scene, sender: Any? = nil) {
         switch scene {
         case .locationDetail:
-            navigateTo(.characterDetailToLocationDetail)
+            navigateTo(.characterDetailToLocationDetail, sender: sender)
             
         default:
             // TODO:
@@ -114,10 +119,6 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
                                  bundle: nil),
                            forCellReuseIdentifier: CharacterInfoViewCell.cellIdentifier)
         
-        tableView.register(UINib(nibName: CharacterOriginViewCell.cellIdentifier,
-                                 bundle: nil),
-                           forCellReuseIdentifier: CharacterOriginViewCell.cellIdentifier)
-        
         tableView.register(UINib(nibName: CharacterLocationViewCell.cellIdentifier,
                                  bundle: nil),
                            forCellReuseIdentifier: CharacterLocationViewCell.cellIdentifier)
@@ -137,8 +138,6 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
         switch indexPath.row {
         case 0:
             return CharacterInfoViewCell.estimatedHeight
-        case 1:
-            return CharacterOriginViewCell.estimatedHeight
         default:
             return CharacterLocationViewCell.estimatedHeight
         }
@@ -149,9 +148,9 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
         case 0:
             return cellInfo(for: indexPath)
         case 1:
-            return cellOrigin(for: indexPath)
+            return cellLocation(for: indexPath, with: .origin)
         default:
-            return cellLocation(for: indexPath)
+            return cellLocation(for: indexPath, with: .last)
         }
     }
     
@@ -175,26 +174,25 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
         return cell ?? UITableViewCell()
     }
     
-    private func cellOrigin(for indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CharacterOriginViewCell.cellIdentifier,
-                                                 for: indexPath) as? CharacterOriginViewCell
-        
-        if let char = viewModel.character {
-            cell?.configure(origin: char.origin)
-        }
-        
-        return cell ?? UITableViewCell()
-    }
-    
-    private func cellLocation(for indexPath: IndexPath) -> UITableViewCell {
+    private func cellLocation(for indexPath: IndexPath, with type: LocationTypes) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterLocationViewCell.cellIdentifier,
                                                  for: indexPath) as? CharacterLocationViewCell
         
         if let char = viewModel.character {
-            cell?.configure(location: char.location, action: {
-                // Notify ViewModel and make action
-                self.viewModel.locationAction()
-            })
+            switch type {
+            case .origin:
+                cell?.configure(location: char.origin, type: .origin,  action: {
+                    // Notify ViewModel and make action
+                    self.viewModel.locationAction(.origin)
+                })
+            case .last:
+                cell?.configure(location: char.location, type: .last,  action: {
+                    // Notify ViewModel and make action
+                    self.viewModel.locationAction(.last)
+                })
+            }
+            
+            
         }
         
         return cell ?? UITableViewCell()

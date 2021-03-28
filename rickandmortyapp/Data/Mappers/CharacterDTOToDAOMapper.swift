@@ -24,20 +24,14 @@ class CharacterDTOToDAOMapper {
                             name: character.name,
                             status: character.status,
                             species: character.species,
-                            type: character.type,
                             gender: character.gender,
                             origin: map(character.origin),
                             location: map(character.location),
                             image: character.image,
-                            url: character.url,
                             favorite: false)
     }
     
-    fileprivate func map(_ origin: CharacterOriginDTO) -> CharacterOriginDAO {
-        return CharacterOriginDAO(name: origin.name, url: origin.url)
-    }
-    
-    fileprivate func map(_ origin: CharacterLocationDTO) -> CharacterLocationDAO {
-        return CharacterLocationDAO(name: origin.name, url: origin.url)
+    fileprivate func map(_ location: CharacterLocationDTO) -> CharacterLocationDAO {
+        return CharacterLocationDAO(name: location.name, url: location.url)
     }
 }

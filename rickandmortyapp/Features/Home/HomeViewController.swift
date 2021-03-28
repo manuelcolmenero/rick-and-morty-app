@@ -104,7 +104,6 @@ class HomeViewController: UIViewController, CharacterDetailViewDelegate {
             navigateTo(.homeToCharacterDetail, sender: sender)
             
         default:
-            // TODO:
             break
         }
     }

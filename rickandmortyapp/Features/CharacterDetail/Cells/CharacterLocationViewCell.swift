@@ -45,16 +45,21 @@ class CharacterLocationViewCell: UITableViewCell {
     }
     
     // MARK: - Configure methods
-    func configure(location: CharacterLocationDAO, action: VoidBlock? = nil) {
+    func configure(location: CharacterLocationDAO, type: LocationTypes, action: VoidBlock? = nil) {
         locationActionDelegate = action
         
-        update(name: location.name)
+        update(name: location.name, type: type)
         updateButton(url: location.url)
     }
     
     // MARK: - Private methods
-    private func update(name: String) {
-        mTitle.text = NSLocalizedString("character_title_last_location", comment: "")
+    private func update(name: String, type: LocationTypes) {
+        switch type {
+        case .origin:
+            mTitle.text = NSLocalizedString("character_title_origin", comment: "")
+        case .last:
+            mTitle.text = NSLocalizedString("character_title_last_location", comment: "")
+        }
         
         mName.text = name
     }

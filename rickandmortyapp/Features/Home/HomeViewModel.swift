@@ -25,7 +25,11 @@ class HomeViewModel {
     }
     
     var numberOfPage: Int {
-        return (characters.count / 20) + 1
+        if areMoreCharacters {
+            guard let page = infoList?.nextUrl?.trimPage() else { return 0 }
+            return Int(page) ?? 0
+        }
+        return 0
     }
     
     // MARK: - Private Properties

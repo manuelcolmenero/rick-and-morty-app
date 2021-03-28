@@ -17,11 +17,6 @@ class ApiManager {
     // Initializer access level change now
     private init() {}
     
-    // MARK: - Properties
-    private let characterPath = "https://rickandmortyapi.com/api/character"
-    private let locationPath = "https://rickandmortyapi.com/api/location/"
-    
-    
     // MARK: - Core
     
     // MARK: - Data
@@ -33,7 +28,7 @@ class ApiManager {
             params["page"] = page
         }
         
-        let request = AF.request(characterPath, method: .get, parameters: params)
+        let request = AF.request(ApiRouter.characterPath.rawValue, method: .get, parameters: params)
         request.responseDecodable { (response: AFDataResponse<CharacterListDTO>) in
             
             // Response data decoded

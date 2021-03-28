@@ -1,5 +1,5 @@
 //
-//  Typealias.swift
+//  ServiceResult.swift
 //  rickandmortyapp
 //
 //  Created by Manuel Colmenero Navaroo on 27/03/2021.

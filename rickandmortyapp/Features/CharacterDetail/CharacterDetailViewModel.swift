@@ -11,7 +11,7 @@ import RxSwift
 class CharacterDetailViewModel {
     // MARK: - Observables
     let needReloadData : PublishSubject<Bool> = PublishSubject()
-    let needNavigateTo : PublishSubject<Scene> = PublishSubject()
+    let needNavigateTo : PublishSubject<(Scene, Any?)> = PublishSubject()
     let needChangeFavorite : PublishSubject<Bool> = PublishSubject()
     
     // MARK: - Properties
@@ -27,8 +27,8 @@ class CharacterDetailViewModel {
         self.needReloadData.onNext(true)
     }
     
-    func locationAction() {
-        needNavigateTo.onNext(.locationDetail)
+    func locationAction(_ type: LocationTypes) {
+        needNavigateTo.onNext((.locationDetail, type))
     }
     
     func favoriteAction() {
