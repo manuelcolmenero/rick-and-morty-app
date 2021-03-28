@@ -19,6 +19,16 @@ class CharacterInfoViewCell: UITableViewCell {
     @IBOutlet weak var mName: UILabel!
     @IBOutlet weak var mStatus: UILabel!
     @IBOutlet weak var mSpecies: UILabel!
+    @IBOutlet weak var mFavorite: UIButton!
+    
+    
+    // MARK: - IBAction
+    @IBAction func mFavoriteAction(_ sender: Any) {
+        favoriteActionDelegate?()
+    }
+    
+    // MARK: - Private properties
+    private var favoriteActionDelegate: VoidBlock? = nil
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
@@ -31,6 +41,8 @@ class CharacterInfoViewCell: UITableViewCell {
         mName.text = nil
         mStatus.text = nil
         mSpecies.text = nil
+        mFavorite.setTitle(nil, for: .normal)
+        mFavorite.setImage(nil, for: .normal)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,11 +52,14 @@ class CharacterInfoViewCell: UITableViewCell {
     }
     
     // MARK: - Configure methods
-    func configure(character: CharacterDAO) {
+    func configure(character: CharacterDAO, action: VoidBlock? = nil) {
+        favoriteActionDelegate = action
+        
         update(imageUrl: character.image)
         update(name: character.name)
         update(status: character.status)
         update(species: character.species, gender: character.gender)
+        update(favorite: character.favorite)
     }
     
     // MARK: - Private methods
@@ -63,5 +78,13 @@ class CharacterInfoViewCell: UITableViewCell {
     
     private func update(species: String, gender: String) {
         mSpecies.text = "\(species) - \(gender)"
+    }
+    
+    private func update(favorite: Bool) {
+        if favorite {
+            mFavorite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            mFavorite.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
     }
 }

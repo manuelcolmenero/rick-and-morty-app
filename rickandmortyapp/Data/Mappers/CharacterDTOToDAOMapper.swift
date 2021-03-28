@@ -29,7 +29,8 @@ class CharacterDTOToDAOMapper {
                             origin: map(character.origin),
                             location: map(character.location),
                             image: character.image,
-                            url: character.url)
+                            url: character.url,
+                            favorite: false)
     }
     
     fileprivate func map(_ origin: CharacterOriginDTO) -> CharacterOriginDAO {

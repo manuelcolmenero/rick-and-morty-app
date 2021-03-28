@@ -16,6 +16,7 @@ class DataManager {
     // Initializer access level change now
     private init() {}
     
+    // MARK: - Remote
     /// Call to get the list of characters
     /// - Parameters:
     ///   - page: Page number to request
@@ -24,7 +25,7 @@ class DataManager {
         
         let apiManager = ApiManager.shared
         apiManager.fetchCharacters(inPage: page) { (result) in
-        
+            
             switch result {
             case .success(data: let characterList):
                 
@@ -35,10 +36,8 @@ class DataManager {
                 }
                 
                 // Mapper DTO to DAO
-                let listDAO = CharacterListDTOToDAOMapper().map(listDTO)
-                
-                // TODO: Find in userDefault if ID is Favorite
-                
+                var listDAO = CharacterListDTOToDAOMapper().map(listDTO)
+                                
                 // Return success result with characters
                 callback(ServiceResult.success(data: listDAO))
                 
@@ -53,7 +52,7 @@ class DataManager {
         
         let apiManager = ApiManager.shared
         apiManager.fetchLocation(urlLocation) { (result) in
-        
+            
             switch result {
             case .success(data: let location):
                 
@@ -74,5 +73,33 @@ class DataManager {
                 callback(ServiceResult.failure(error: error))
             }
         }
+    }
+    
+    // MARK: - Local
+    func getFavorite(_ id: Int) -> Bool {
+        let userDefaults = UserDefaultsManager.shared
+        let favorites = userDefaults.getFavoriteCharacters()
+        
+        return (favorites.first { $0 == id } != nil)
+    }
+    
+    
+    func addFavorite(_ id: Int) {
+        let userDefaults = UserDefaultsManager.shared
+        var favorites = userDefaults.getFavoriteCharacters()
+        
+        favorites.append(id)
+        
+        userDefaults.saveFavoriteCharacters(favorites)
+    }
+    
+    func removeFavorite(_ id: Int) {
+        
+        let userDefaults = UserDefaultsManager.shared
+        let favorites = userDefaults.getFavoriteCharacters()
+        
+        let newFavorites = favorites.filter { $0 != id }
+        
+        userDefaults.saveFavoriteCharacters(newFavorites)        
     }
 }

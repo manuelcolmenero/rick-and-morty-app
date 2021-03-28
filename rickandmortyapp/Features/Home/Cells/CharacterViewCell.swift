@@ -17,6 +17,15 @@ class CharacterViewCell: UITableViewCell {
     // MARK: - IBOutlet
     @IBOutlet weak var mImage: UIImageView!
     @IBOutlet weak var mName: UILabel!
+    @IBOutlet weak var mFavorite: UIButton!
+    
+    // MARK: - IBAction
+    @IBAction func mFavoriteAction(_ sender: Any) {
+        favoriteActionDelegate?()
+    }
+    
+    // MARK: - Private properties
+    private var favoriteActionDelegate: VoidBlock? = nil
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
@@ -36,9 +45,12 @@ class CharacterViewCell: UITableViewCell {
     }
     
     // MARK: - Configure methods
-    func configure(character: CharacterDAO) {
+    func configure(character: CharacterDAO, action: VoidBlock? = nil) {
+        favoriteActionDelegate = action
+        
         update(imageUrl: character.image)
         update(name: character.name)
+        update(favorite: character.favorite)
     }
     
     // MARK: - Private methods
@@ -49,5 +61,13 @@ class CharacterViewCell: UITableViewCell {
     
     private func update(name: String) {
         self.mName.text = name
+    }
+    
+    private func update(favorite: Bool) {
+        if favorite {
+            mFavorite.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            mFavorite.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
     }
 }

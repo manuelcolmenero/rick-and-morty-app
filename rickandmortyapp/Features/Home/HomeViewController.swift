@@ -8,7 +8,8 @@
 import Foundation
 import RxSwift
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, CharacterDetailViewDelegate {
+    
     // MARK: - Properties
     private let viewModel = HomeViewModel()
     private let disposeBag = DisposeBag()
@@ -55,6 +56,14 @@ class HomeViewController: UIViewController {
                 self?.navigateTo(scene, sender: data)
             })
             .disposed(by: disposeBag)
+        
+        
+            viewModel.needReloadCell
+                .observe(on: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] index in
+                    self?.reloadCell(index)
+                })
+                .disposed(by: disposeBag)
     }
     
     // MARK: - Reaload Data
@@ -63,12 +72,18 @@ class HomeViewController: UIViewController {
         tableView.reloadData()
     }
     
+    fileprivate func reloadCell(_ rowNumber: Int) {
+        let indexPath = IndexPath(item: rowNumber, section: 0)
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
+    
     // MARK: - Navigate functions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
             case Segue.homeToCharacterDetail.rawValue:
                 guard let destination = segue.destination as? CharacterDetailViewController, let character = sender as? CharacterDAO else { return }
                 destination.character = character
+                destination.delegate = self
                 
             default:
                 return
@@ -83,6 +98,15 @@ class HomeViewController: UIViewController {
             default:
                 // TODO:
                 break
+        }
+    }
+    
+    // MARK: - CharacterDetailViewDelegate
+    func needUpdate(characterId: Int?) {
+        guard let id = characterId else { return }
+        
+        if let rowNumber = viewModel.index(by: id) {
+            reloadCell(rowNumber)
         }
     }
 }
@@ -138,7 +162,6 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     
     // MARK: Private
     // MARK: Configure cells
-    
     private func cellLoading(_ tableView: UITableView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
         tableView.dequeueReusableCell(withIdentifier: LoadingViewCell.cellIdentifier,
                                       for: indexPath)
@@ -148,8 +171,12 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterViewCell.cellIdentifier,
                                                  for: indexPath) as? CharacterViewCell
         
-        if let character = viewModel.character(by: indexPath.row) {
-            cell?.configure(character: character)
+        if var character = viewModel.character(by: indexPath.row) {
+            character.favorite = viewModel.updateFavorite(for: character.id)
+            cell?.configure(character: character) {
+                // Notify ViewModel and make action
+                self.viewModel.favoriteAction(for: character.id, and: indexPath.row)
+            }
         }
         
         return cell ?? UITableViewCell()

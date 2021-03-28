@@ -53,6 +53,7 @@
 		FA351FBE260FC9E0006B6D09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA351E8D260F39C3006B6D09 /* LaunchScreen.storyboard */; };
 		FA351FC5260FCA39006B6D09 /* LocationInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351FC3260FCA39006B6D09 /* LocationInfoViewCell.swift */; };
 		FA351FC6260FCA39006B6D09 /* LocationInfoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA351FC4260FCA39006B6D09 /* LocationInfoViewCell.xib */; };
+		FA351FCE2610929E006B6D09 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA351FCD2610929E006B6D09 /* UserDefaultsManager.swift */; };
 		FCD6D9FAA102452CFC5C071C /* Pods_rickandmortyappTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F75AC19D59504A0B01524CA9 /* Pods_rickandmortyappTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -133,6 +134,7 @@
 		FA351FB3260FC593006B6D09 /* LocationDTOToDAOMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDTOToDAOMapper.swift; sourceTree = "<group>"; };
 		FA351FC3260FCA39006B6D09 /* LocationInfoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInfoViewCell.swift; sourceTree = "<group>"; };
 		FA351FC4260FCA39006B6D09 /* LocationInfoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationInfoViewCell.xib; sourceTree = "<group>"; };
+		FA351FCD2610929E006B6D09 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 		FA351ED0260F852A006B6D09 /* Local */ = {
 			isa = PBXGroup;
 			children = (
+				FA351FCD2610929E006B6D09 /* UserDefaultsManager.swift */,
 			);
 			path = Local;
 			sourceTree = "<group>";
@@ -654,6 +657,7 @@
 				FA351F64260FA56C006B6D09 /* CharacterDetailViewController.swift in Sources */,
 				FA351F2B260F91B1006B6D09 /* CharacterListDTO.swift in Sources */,
 				FA351F19260F90A6006B6D09 /* ServiceResult.swift in Sources */,
+				FA351FCE2610929E006B6D09 /* UserDefaultsManager.swift in Sources */,
 				FA351F14260F8FF9006B6D09 /* DataManager.swift in Sources */,
 				FA351FA0260FC15C006B6D09 /* LocationDetailViewController.swift in Sources */,
 				FA351EF5260F8B64006B6D09 /* CharacterViewCell.swift in Sources */,

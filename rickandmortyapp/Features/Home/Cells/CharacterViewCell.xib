@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32s-38-pPo">
-                        <rect key="frame" x="95" y="10" width="295" height="75"/>
+                        <rect key="frame" x="95" y="10" width="253" height="75"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -29,25 +30,44 @@
                             <constraint firstAttribute="width" secondItem="BvG-oc-3Gk" secondAttribute="height" multiplier="1:1" id="FGe-O1-xni"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rS-65-WDB">
+                        <rect key="frame" x="358" y="10" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="3rS-65-WDB" secondAttribute="height" multiplier="1:1" id="TVD-xT-13p"/>
+                            <constraint firstAttribute="height" constant="32" id="qE4-iH-CZB"/>
+                        </constraints>
+                        <color key="tintColor" systemColor="systemGreenColor"/>
+                        <connections>
+                            <action selector="mFavoriteAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="rGo-6i-Hsq"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="32s-38-pPo" firstAttribute="leading" secondItem="BvG-oc-3Gk" secondAttribute="trailing" constant="10" id="7Ow-a2-xsr"/>
                     <constraint firstItem="32s-38-pPo" firstAttribute="bottom" secondItem="BvG-oc-3Gk" secondAttribute="bottom" id="9yC-LO-UF3"/>
                     <constraint firstItem="32s-38-pPo" firstAttribute="top" secondItem="BvG-oc-3Gk" secondAttribute="top" id="LFJ-CE-fNz"/>
-                    <constraint firstAttribute="trailing" secondItem="32s-38-pPo" secondAttribute="trailing" constant="10" id="xY2-ad-zBD"/>
+                    <constraint firstItem="3rS-65-WDB" firstAttribute="top" secondItem="BvG-oc-3Gk" secondAttribute="top" id="nea-AA-fOL"/>
+                    <constraint firstItem="3rS-65-WDB" firstAttribute="leading" secondItem="32s-38-pPo" secondAttribute="trailing" constant="10" id="xY2-ad-zBD"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="BvG-oc-3Gk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="kWd-uI-p1Q"/>
+                <constraint firstItem="njF-e1-oar" firstAttribute="trailing" secondItem="3rS-65-WDB" secondAttribute="trailing" constant="10" id="q2H-Yp-LVa"/>
                 <constraint firstItem="BvG-oc-3Gk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="sDS-DG-H9t"/>
             </constraints>
             <connections>
+                <outlet property="mFavorite" destination="3rS-65-WDB" id="HCM-0V-boH"/>
                 <outlet property="mImage" destination="BvG-oc-3Gk" id="uk7-2n-bQu"/>
                 <outlet property="mName" destination="32s-38-pPo" id="RIT-es-fTq"/>
             </connections>
             <point key="canvasLocation" x="198.55072463768118" y="159.375"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

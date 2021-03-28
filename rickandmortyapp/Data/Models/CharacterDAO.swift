@@ -18,6 +18,7 @@ struct CharacterDAO: Codable {
     var location: CharacterLocationDAO
     var image: String
     var url: String
+    var favorite: Bool
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -30,6 +31,7 @@ struct CharacterDAO: Codable {
         case location
         case image
         case url
+        case favorite
     }
 }
 

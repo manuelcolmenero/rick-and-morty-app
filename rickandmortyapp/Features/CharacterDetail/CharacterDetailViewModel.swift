@@ -12,8 +12,10 @@ class CharacterDetailViewModel {
     // MARK: - Observables
     let needReloadData : PublishSubject<Bool> = PublishSubject()
     let needNavigateTo : PublishSubject<Scene> = PublishSubject()
+    let needChangeFavorite : PublishSubject<Bool> = PublishSubject()
     
     // MARK: - Properties
+    var character: CharacterDAO?
     
     // MARK: - Computed properties
     
@@ -21,10 +23,37 @@ class CharacterDetailViewModel {
     
     // MARK: - Public functions
     func loadData() {
+        updateFavorite()
         self.needReloadData.onNext(true)
     }
     
-    func sendButtonAction() {
+    func locationAction() {
         needNavigateTo.onNext(.locationDetail)
+    }
+    
+    func favoriteAction() {
+        guard let char = character else { return }
+        
+        let dataManager = DataManager.shared
+            
+        if char.favorite {
+            dataManager.removeFavorite(char.id)
+        } else {
+            dataManager.addFavorite(char.id)
+        }
+        
+        character?.favorite = !(char.favorite)
+            
+        self.needReloadData.onNext(true)
+        self.needChangeFavorite.onNext(true)
+    }
+    
+    // MARK: - Private functions
+    func updateFavorite() {
+        guard let char = character else { return }
+        
+        let dataManager = DataManager.shared
+        
+        character?.favorite = dataManager.getFavorite(char.id)
     }
 }

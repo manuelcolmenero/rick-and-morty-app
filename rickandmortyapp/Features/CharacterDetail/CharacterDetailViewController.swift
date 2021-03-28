@@ -8,10 +8,15 @@
 import Foundation
 import RxSwift
 
+protocol CharacterDetailViewDelegate {
+    func needUpdate(characterId: Int?)
+}
+
 class CharacterDetailViewController: UIViewController {
     
     // MARK: - Public properties
     var character: CharacterDAO?
+    var delegate: CharacterDetailViewDelegate? = nil
     
     // MARK: - Properties
     private let viewModel = CharacterDetailViewModel()
@@ -27,6 +32,7 @@ class CharacterDetailViewController: UIViewController {
         configureObservers()
         configureView()
         
+        viewModel.character = character
         viewModel.loadData()
         
     }
@@ -57,6 +63,13 @@ class CharacterDetailViewController: UIViewController {
                 self?.navigateTo(scene)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.needChangeFavorite
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.refreshDelegate()
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - Reaload Data
@@ -85,6 +98,10 @@ class CharacterDetailViewController: UIViewController {
             // TODO:
             break
         }
+    }
+    
+    private func refreshDelegate() {
+        delegate?.needUpdate(characterId: viewModel.character?.id ?? nil)
     }
 }
 
@@ -144,8 +161,11 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterInfoViewCell.cellIdentifier,
                                                  for: indexPath) as? CharacterInfoViewCell
         
-        if let char = character {
-            cell?.configure(character: char)
+        if let char = viewModel.character {
+            cell?.configure(character: char) {
+                // Notify ViewModel and make action
+                self.viewModel.favoriteAction()
+            }
         }
         
         return cell ?? UITableViewCell()
@@ -155,7 +175,7 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterOriginViewCell.cellIdentifier,
                                                  for: indexPath) as? CharacterOriginViewCell
         
-        if let char = character {
+        if let char = viewModel.character {
             cell?.configure(origin: char.origin)
         }
         
@@ -166,10 +186,10 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
         let cell = tableView.dequeueReusableCell(withIdentifier: CharacterLocationViewCell.cellIdentifier,
                                                  for: indexPath) as? CharacterLocationViewCell
         
-        if let char = character {
+        if let char = viewModel.character {
             cell?.configure(location: char.location, action: {
                 // Notify ViewModel and make action
-                self.viewModel.sendButtonAction()
+                self.viewModel.locationAction()
             })
         }
         

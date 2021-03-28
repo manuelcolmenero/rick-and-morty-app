@@ -12,6 +12,7 @@ class HomeViewModel {
     // MARK: - Observables
     let needReloadData : PublishSubject<Bool> = PublishSubject()
     let needNavigateTo : PublishSubject<(Scene, Any?)> = PublishSubject()
+    let needReloadCell : PublishSubject<Int> = PublishSubject()
     
     // MARK: - Properties
     var infoList: InfoDAO?
@@ -34,6 +35,7 @@ class HomeViewModel {
     }
     
     func character(by index: Int) -> CharacterDAO? { characters[index] }
+    func index(by id: Int) -> Int? { characters.firstIndex { $0.id == id } ?? nil }
     
     func onUpdateData(withReset reset: Bool) {
         if reset {
@@ -45,6 +47,27 @@ class HomeViewModel {
     
     func onCharacterPressed(_ index: Int) {
         showLocationDetail(for: index)
+    }
+    
+    func updateFavorite(for id: Int) -> Bool{
+        let dataManager = DataManager.shared
+        
+        return dataManager.getFavorite(id)
+    }
+    
+    func favoriteAction(for id: Int, and index: Int) {
+        let dataManager = DataManager.shared
+        let character = characters[index]
+            
+        if character.favorite {
+            dataManager.removeFavorite(character.id)
+        } else {
+            dataManager.addFavorite(character.id)
+        }
+        
+        characters[index].favorite = !(character.favorite)
+            
+        self.needReloadCell.onNext(index)
     }
     
     // MARK: - Data functions
