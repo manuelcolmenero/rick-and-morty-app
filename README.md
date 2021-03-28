@@ -25,8 +25,33 @@ You are allowed to use the following endpoints to fetch the data:
 
 `GET https://rickandmortyapi.com/api/location/{location_id}`: Endpoint to fetch the details of a location.
 
+- - -
 
-## **Notes**
-Pending...
+## **Technology**
+* xCode 12.2
+* Cocoapods 1.10.1
+* Swift
+* RxSwift
+* Alamofire
+* AlamofireImage
 
+## Setup
+```
+$ mkdir RickAndMortyApp
+$ cd RickAndMortyApp
+$ git clone https://github.com/manuelcolmenero/rick-and-morty-app.git
+$ cd rick-and-morty-app
+$ pod install
+```
+
+## Requeriments
+### Done
+- List of characters.
+- Detail of each character's last known location.
+- Design your own UI, you have no limitations.
+- Set a character as favorite.
+- Paginated list (infinite list scroll).
+
+### Not implemented
+- Unit and UI tests
 
