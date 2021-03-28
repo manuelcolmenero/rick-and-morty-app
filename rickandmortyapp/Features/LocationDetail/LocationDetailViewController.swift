@@ -34,7 +34,7 @@ class LocationDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.title = "Location detail"
+        self.title = NSLocalizedString("location_title_screen", comment: "")
     }
     
     // MARK: - Configure methods

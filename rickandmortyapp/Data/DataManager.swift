@@ -31,7 +31,7 @@ class DataManager {
                 
                 // Data validation
                 guard let listDTO = characterList as? CharacterListDTO else {
-                    callback(ServiceResult.failure(error: "Call without data. Contact us")) // TODO: Change harcode
+                    callback(ServiceResult.failure(error: NSLocalizedString("error_call_data", comment: "")))
                     return
                 }
                 
@@ -58,7 +58,7 @@ class DataManager {
                 
                 // Data validation
                 guard let locationDTO = location as? LocationDTO else {
-                    callback(ServiceResult.failure(error: "Call without data. Contact us")) // TODO: Change harcode
+                    callback(ServiceResult.failure(error: NSLocalizedString("error_call_data", comment: "")))
                     return
                 }
                 

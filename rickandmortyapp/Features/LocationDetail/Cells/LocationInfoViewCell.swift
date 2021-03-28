@@ -51,12 +51,12 @@ class LocationInfoViewCell: UITableViewCell {
     }
     
     private func update(type: String) {
-        mTypeTitle.text = "Type:" // TODO: Change hardcode
+        mTypeTitle.text = NSLocalizedString("location_title_type", comment: "")
         mType.text = type
     }
     
     private func update(dimension: String) {
-        mDimensionTitle.text = "Dimension:" // TODO: Change hardcode
+        mDimensionTitle.text = NSLocalizedString("location_title_dimension", comment: "")
         mDimension.text = dimension
     }
 }

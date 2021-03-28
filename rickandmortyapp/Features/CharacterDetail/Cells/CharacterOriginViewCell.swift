@@ -42,7 +42,7 @@ class CharacterOriginViewCell: UITableViewCell {
     
     // MARK: - Private methods
     private func update(name: String) {
-        mTitle.text = "Origin location:" // TODO: Change hardcode
+        mTitle.text = NSLocalizedString("character_title_origin", comment: "")
         
         mName.text = name
     }

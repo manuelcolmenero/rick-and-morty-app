@@ -33,7 +33,7 @@ class HomeViewController: UIViewController, CharacterDetailViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.title = "Characters" // TODO: Change hardcode
+        self.title = NSLocalizedString("home_title_screen", comment: "")
     }
     
     // MARK: - Configure methods

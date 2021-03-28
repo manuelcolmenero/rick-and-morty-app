@@ -45,7 +45,7 @@ class ApiManager {
             } else {
                 // Notify to callback data error message
                 // and send custom text
-                callback(ServiceResult.failure(error: "Service error parse response data"))
+                callback(ServiceResult.failure(error: NSLocalizedString("error_service", comment: "")))
             }
         }
     }
@@ -68,7 +68,7 @@ class ApiManager {
             } else {
                 // Notify to callback data error message
                 // and send custom text
-                callback(ServiceResult.failure(error: "Service error parse response data"))
+                callback(ServiceResult.failure(error: NSLocalizedString("error_service", comment: "")))
             }
         }
     }

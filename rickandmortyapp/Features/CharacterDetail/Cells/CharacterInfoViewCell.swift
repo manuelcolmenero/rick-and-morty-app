@@ -73,7 +73,7 @@ class CharacterInfoViewCell: UITableViewCell {
     }
     
     private func update(status: String) {
-        mStatus.text = "status: \(status)" // TODO: Change hardcode
+        mStatus.text = "\(NSLocalizedString("character_title_status", comment: "")) \(status)"
     }
     
     private func update(species: String, gender: String) {

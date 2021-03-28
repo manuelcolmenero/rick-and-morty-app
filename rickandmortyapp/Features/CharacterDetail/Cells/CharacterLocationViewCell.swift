@@ -54,7 +54,7 @@ class CharacterLocationViewCell: UITableViewCell {
     
     // MARK: - Private methods
     private func update(name: String) {
-        mTitle.text = "Last known location:" // TODO: Change hardcode
+        mTitle.text = NSLocalizedString("character_title_last_location", comment: "")
         
         mName.text = name
     }
@@ -64,8 +64,7 @@ class CharacterLocationViewCell: UITableViewCell {
         
         if !url.isEmpty {
             mLocationAction.isHidden = false
-            self.mLocationAction.setTitle("Show location detail", for: .normal) // TODO: Change hardcode
+            self.mLocationAction.setTitle(NSLocalizedString("character_button_location", comment: ""), for: .normal)
         }
-    }
-    
+    }    
 }

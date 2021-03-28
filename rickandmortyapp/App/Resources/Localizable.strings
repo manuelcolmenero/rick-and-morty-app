@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  rickandmortyapp
+
+  Created by Manuel Colmenero Navaroo on 28/03/2021.
+  
+*/
+
+// Core
+// Home
+"home_title_screen" = "Characters";
+
+// Character
+"character_title_status" = "Status:";
+"character_title_origin" = "Origin location:";
+"character_title_last_location" = "Last known location:";
+"character_button_location" = "Show location detail";
+
+// Location
+"location_title_screen" = "Location detail";
+
+"location_title_type" = "Type:";
+"location_title_dimension" = "Dimension:";
+
+// Errors
+"error_call_data" = "Call without data. Contact us";
+"error_service" = "Service error. Contact us";
