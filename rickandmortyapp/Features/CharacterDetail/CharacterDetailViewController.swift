@@ -155,6 +155,10 @@ extension CharacterDetailViewController : UITableViewDataSource, UITableViewDele
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+        self.tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
     // MARK: Private
     // MARK: Configure cells
     private func cellInfo(for indexPath: IndexPath) -> UITableViewCell {

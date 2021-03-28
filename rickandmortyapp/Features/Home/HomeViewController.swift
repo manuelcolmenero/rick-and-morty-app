@@ -166,6 +166,8 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
         if(!(viewModel.areMoreCharacters && indexPath.row == viewModel.characters.count)) {
             viewModel.onCharacterPressed(indexPath.row)
         }
+        
+        self.tableView.deselectRow(at: indexPath, animated: false)
     }
     
     // MARK: Private
