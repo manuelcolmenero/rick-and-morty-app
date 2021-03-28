@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class CharacterViewCell: UITableViewCell {
     
@@ -14,7 +15,8 @@ class CharacterViewCell: UITableViewCell {
     static let estimatedHeight: CGFloat = 100.0
     
     // MARK: - IBOutlet
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var mImage: UIImageView!
+    @IBOutlet weak var mName: UILabel!
     
     // MARK: - Lifecycle
     override func awakeFromNib() {
@@ -23,7 +25,8 @@ class CharacterViewCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        name.text = nil
+        mImage.image = nil
+        mName.text = nil
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,11 +37,17 @@ class CharacterViewCell: UITableViewCell {
     
     // MARK: - Configure methods
     func configure(character: CharacterDAO) {
+        update(imageUrl: character.image)
         update(name: character.name)
     }
     
     // MARK: - Private methods
+    private func update(imageUrl: String) {
+        let url = URL(string: imageUrl)!
+        mImage.af.setImage(withURL: url)
+    }
+    
     private func update(name: String) {
-        self.name.text = name
+        self.mName.text = name
     }
 }

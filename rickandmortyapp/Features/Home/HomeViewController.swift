@@ -110,6 +110,14 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
         return viewModel.characters.count
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(viewModel.areMoreCharacters && indexPath.row == viewModel.characters.count) {
+            return LoadingViewCell.estimatedHeight
+        } else {
+            return CharacterViewCell.estimatedHeight
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
         if(viewModel.areMoreCharacters && indexPath.row == viewModel.characters.count) {
@@ -130,6 +138,7 @@ extension HomeViewController : UITableViewDataSource, UITableViewDelegate {
     
     // MARK: Private
     // MARK: Configure cells
+    
     private func cellLoading(_ tableView: UITableView, cellForItemAt indexPath: IndexPath) -> UITableViewCell {
         tableView.dequeueReusableCell(withIdentifier: LoadingViewCell.cellIdentifier,
                                       for: indexPath)

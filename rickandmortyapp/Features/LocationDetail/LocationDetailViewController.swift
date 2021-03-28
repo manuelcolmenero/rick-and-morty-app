@@ -34,7 +34,7 @@ class LocationDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.title = location?.name
+        self.title = "Location detail"
     }
     
     // MARK: - Configure methods

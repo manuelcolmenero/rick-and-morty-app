@@ -10,7 +10,7 @@ import UIKit
 class LocationInfoViewCell: UITableViewCell {
     // MARK: - Class
     static let cellIdentifier = String(describing: LocationInfoViewCell.self)
-    static let estimatedHeight: CGFloat = 200.0
+    static let estimatedHeight: CGFloat = 150.0
     
     // MARK: - IBOutlet
     @IBOutlet weak var mName: UILabel!
@@ -51,12 +51,12 @@ class LocationInfoViewCell: UITableViewCell {
     }
     
     private func update(type: String) {
-        mTypeTitle.text = "Type"
+        mTypeTitle.text = "Type:" // TODO: Change hardcode
         mType.text = type
     }
     
     private func update(dimension: String) {
-        mDimensionTitle.text = "Dimensiin"
+        mDimensionTitle.text = "Dimension:" // TODO: Change hardcode
         mDimension.text = dimension
     }
 }

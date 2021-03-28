@@ -11,7 +11,7 @@ class CharacterOriginViewCell: UITableViewCell {
     
     // MARK: - Class
     static let cellIdentifier = String(describing: CharacterOriginViewCell.self)
-    static let estimatedHeight: CGFloat = 100.0
+    static let estimatedHeight: CGFloat = 75.0
     
     // MARK: - IBOutlet
     @IBOutlet weak var mTitle: UILabel!
@@ -42,7 +42,7 @@ class CharacterOriginViewCell: UITableViewCell {
     
     // MARK: - Private methods
     private func update(name: String) {
-        mTitle.text = "Last known location:" // TODO: Change hardcode
+        mTitle.text = "Origin location:" // TODO: Change hardcode
         
         mName.text = name
     }
